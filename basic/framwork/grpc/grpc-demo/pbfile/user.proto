@@ -1,0 +1,12 @@
+syntax = "proto3";
+// option go_package="path;name"
+// path表示go文件存放的目录
+// name表示生成的go文件所属的包名
+option go_package = "../service";
+// 指定对应文件生成出来的pkg
+package service;
+
+message User {
+  string username = 1;
+  int32 age = 2;
+}
