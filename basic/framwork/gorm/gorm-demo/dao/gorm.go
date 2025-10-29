@@ -9,13 +9,18 @@ import (
 
 var DB *gorm.DB
 
+//var _db *gorm.DB
+
 func init() {
 	//配置MySQL连接参数
-	username := "root"  //账号
-	password := "root"  //密码
-	host := "127.0.0.1" //数据库地址，可以是Ip或者域名
-	port := 3306        //数据库端口
-	Dbname := "gorm"    //数据库名
+	username := "root"   //账号
+	password := "123456" //密码
+	host := "127.0.0.1"  //数据库地址，可以是Ip或者域名
+	port := 3306         //数据库端口
+	Dbname := "orms"     //数据库名
+	//  charset=utf8 客户端字符集为utf8
+	//  parseTime=true 支持把数据库datetime和date类型转换为golang的time.Time类型
+	//  loc=Local 使用系统本地时区
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=utf8&parseTime=True&loc=Local", username, password, host, port, Dbname)
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{
 		Logger: logger.Default.LogMode(logger.Info),
@@ -24,4 +29,13 @@ func init() {
 		panic("连接数据库失败, error=" + err.Error())
 	}
 	DB = db
+	// 设置链接数
+	//db, _ := _db.DB()
+	//db.SetMaxIdleConns(10)
+	//db.SetMaxOpenConns(100)
+
 }
+
+//func GetDB() *gorm.DB {
+//	return _db
+//}

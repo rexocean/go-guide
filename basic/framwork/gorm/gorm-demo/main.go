@@ -8,10 +8,9 @@ import (
 
 func main() {
 	r := gin.Default()
-	err := r.Run(":8080")
 	router.InitRouter(r)
+	err := r.Run(":8080")
 	if err != nil {
 		log.Fatal(err)
 	}
-
 }
