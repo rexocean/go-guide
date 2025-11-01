@@ -7,7 +7,7 @@ import (
 	"context"
 	"order/internal/svc"
 	"order/internal/types"
-	"user/types/user"
+	"rpc-common/types/user"
 
 	"github.com/zeromicro/go-zero/core/logx"
 )
