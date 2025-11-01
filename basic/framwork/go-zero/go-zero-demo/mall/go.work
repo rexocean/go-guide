@@ -1,9 +1,0 @@
-go 1.24.4
-
-use (
-	.
-	./order
-	./user
-	./userapi
-	rpc-common
-)
